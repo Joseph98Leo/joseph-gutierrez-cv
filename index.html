@@ -7,53 +7,39 @@
 <meta name="description" content="Joseph Gutierrez, frontend developer working across React, Java/Spring Boot and NestJS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Public+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg: #F1EFE7;
-    --surface: #E7E2D5;
-    --ink: #191C22;
-    --ink-soft: #4C525A;
-    --ink-faint: #7D828A;
-    --accent: #146356;
-    --accent-strong: #0E4A40;
-    --accent-warm: #B4682B;
-    --line: #D6D0C0;
-    --line-strong: #B7AF9A;
+    --bg: #FAF8F3;
+    --ink: #201F1C;
+    --ink-soft: #57534A;
+    --ink-faint: #948F84;
+    --accent: #46566B;
+    --line: #E5E0D5;
 
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 
-    --font-display: 'Newsreader', Georgia, 'Iowan Old Style', serif;
-    --font-body: 'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
-    --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+    --font-display: 'Cormorant Garamond', Georgia, 'Iowan Old Style', serif;
+    --font-body: 'Public Sans', -apple-system, 'Segoe UI', sans-serif;
   }
 
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg: #14171A;
-      --surface: #1B1F23;
-      --ink: #E9E6DC;
-      --ink-soft: #ABB0B6;
-      --ink-faint: #6E747C;
-      --accent: #5CBBA7;
-      --accent-strong: #83CEBE;
-      --accent-warm: #D98F4E;
-      --line: #262B30;
-      --line-strong: #363D44;
+      --bg: #17160F;
+      --ink: #EFEAE0;
+      --ink-soft: #B7B1A2;
+      --ink-faint: #726C60;
+      --accent: #93A6BE;
+      --line: #2A2820;
     }
   }
   :root[data-theme="dark"]{
-    --bg: #14171A;
-    --surface: #1B1F23;
-    --ink: #E9E6DC;
-    --ink-soft: #ABB0B6;
-    --ink-faint: #6E747C;
-    --accent: #5CBBA7;
-    --accent-strong: #83CEBE;
-    --accent-warm: #D98F4E;
-    --line: #262B30;
-    --line-strong: #363D44;
+    --bg: #17160F;
+    --ink: #EFEAE0;
+    --ink-soft: #B7B1A2;
+    --ink-faint: #726C60;
+    --accent: #93A6BE;
+    --line: #2A2820;
   }
 
   *{ box-sizing: border-box; }
@@ -63,266 +49,197 @@
     background: var(--bg);
     color: var(--ink);
     font-family: var(--font-body);
+    font-weight: 300;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3{
+  h1, h2{
     font-family: var(--font-display);
     color: var(--ink);
     text-wrap: balance;
     margin: 0;
+    font-weight: 500;
   }
   p{ margin: 0; }
   a{ color: inherit; }
   ul{ margin: 0; padding: 0; list-style: none; }
   ::selection{ background: var(--accent); color: var(--bg); }
-  img{ max-width: 100%; }
 
-  .wrap{
-    max-width: 880px;
+  .col{
+    max-width: 640px;
     margin: 0 auto;
     padding: 0 32px;
   }
 
+  .label{
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 500;
+  }
+
   /* ---------- nav ---------- */
   .nav{
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
+    padding: 36px 0 0;
   }
   .nav-inner{
-    max-width: 880px;
+    max-width: 640px;
     margin: 0 auto;
-    padding: 16px 32px;
+    padding: 0 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
   }
   .nav-mark{
-    font-family: var(--font-mono);
-    font-size: 0.86rem;
-    letter-spacing: 0.01em;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
     text-decoration: none;
     color: var(--ink);
   }
-  .nav-mark span{ color: var(--accent); }
   .nav-links{
     display: none;
-    gap: 26px;
+    gap: 28px;
   }
-  @media (min-width: 640px){
+  @media (min-width: 600px){
     .nav-links{ display: flex; }
   }
   .nav-links a{
     text-decoration: none;
-    font-size: 0.86rem;
-    color: var(--ink-soft);
-    transition: color 160ms var(--ease-out);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-faint);
+    transition: color 200ms var(--ease-out);
   }
   @media (hover: hover) and (pointer: fine){
     .nav-links a:hover{ color: var(--accent); }
   }
-  .nav-cta{
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    text-decoration: none;
-    color: var(--ink);
-    border: 1px solid var(--line-strong);
-    border-radius: 3px;
-    padding: 7px 12px;
-    transition: transform 160ms var(--ease-out), border-color 160ms var(--ease-out), color 160ms var(--ease-out);
-  }
-  .nav-cta:active{ transform: scale(0.96); }
-  @media (hover: hover) and (pointer: fine){
-    .nav-cta:hover{ border-color: var(--accent); color: var(--accent); }
-  }
 
   /* ---------- hero ---------- */
   .hero{
-    padding: 64px 0 56px;
+    padding: 88px 0 76px;
   }
-  .eyebrow{
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 22px;
-  }
-  .eyebrow .cursor{
-    display: inline-block;
-    width: 7px;
-    height: 14px;
-    background: var(--accent);
-    animation: blink 1.1s steps(1) infinite;
-  }
-  @media (prefers-reduced-motion: reduce){
-    .eyebrow .cursor{ animation: none; opacity: 1; }
-  }
-  @keyframes blink{ 50%{ opacity: 0; } }
-
+  .hero .label{ margin-bottom: 26px; display: block; }
   .hero h1{
-    font-size: clamp(2.4rem, 6vw, 3.8rem);
-    font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -0.01em;
+    font-size: clamp(2.5rem, 6vw, 3.4rem);
+    line-height: 1.18;
+    letter-spacing: -0.005em;
   }
   .hero h1 em{
     font-style: italic;
     color: var(--accent);
   }
   .hero-tagline{
-    margin-top: 22px;
-    max-width: 54ch;
-    font-size: 1.12rem;
+    margin-top: 28px;
+    max-width: 46ch;
+    font-size: 1.06rem;
+    font-weight: 300;
     color: var(--ink-soft);
   }
   .hero-contacts{
-    margin-top: 32px;
+    margin-top: 36px;
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 6px 0;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
   }
-  .chip{
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--ink-soft);
+  .hero-contacts a{
     text-decoration: none;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 8px 12px;
-    transition: transform 160ms var(--ease-out), border-color 160ms var(--ease-out), color 160ms var(--ease-out);
+    color: var(--ink-soft);
+    border-bottom: 1px solid transparent;
+    transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out);
   }
-  .chip:active{ transform: scale(0.96); }
   @media (hover: hover) and (pointer: fine){
-    .chip:hover{ border-color: var(--accent); color: var(--accent); }
+    .hero-contacts a:hover{ color: var(--accent); border-color: var(--accent); }
   }
+  .sep{ margin: 0 10px; color: var(--line); }
 
   /* ---------- sections ---------- */
   section{
-    padding: 52px 0;
+    padding: 58px 0;
     border-top: 1px solid var(--line);
   }
   .section-head{
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 32px;
-    flex-wrap: wrap;
+    margin-bottom: 40px;
   }
   .section-head h2{
     font-size: 1.5rem;
-    font-weight: 500;
-  }
-  .section-tag{
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
+    margin-top: 8px;
   }
 
   .profile-text{
-    max-width: 64ch;
-    font-size: 1.05rem;
+    max-width: 56ch;
+    font-size: 1.02rem;
+    font-weight: 300;
     color: var(--ink-soft);
   }
 
-  /* ---------- experience log ---------- */
-  .log-entry{
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 24px;
-    padding: 28px 0;
-    border-top: 1px solid var(--line);
-  }
-  .log-entry:first-child{ border-top: none; padding-top: 0; }
-  .log-meta{ padding-top: 2px; }
-  .log-version{
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--accent-warm);
-    display: block;
-  }
-  .log-role{
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-  .log-org{
-    font-size: 0.92rem;
-    color: var(--ink-faint);
-    margin-bottom: 12px;
-  }
-  .log-body p + p{ margin-top: 8px; }
-  .log-body p{
-    color: var(--ink-soft);
-    font-size: 0.96rem;
-  }
-  .log-stack{
-    margin-top: 14px;
+  /* ---------- experience ---------- */
+  .entry{ margin-bottom: 44px; }
+  .entry:last-child{ margin-bottom: 0; }
+  .entry-top{
     display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
     flex-wrap: wrap;
-    gap: 8px;
   }
-  .tag{
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
+  .entry-role{
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .entry-when{
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .entry-org{
+    font-size: 0.9rem;
+    color: var(--ink-faint);
+    font-style: italic;
+    font-family: var(--font-display);
+    margin-top: 2px;
+  }
+  .entry-body{ margin-top: 14px; }
+  .entry-body p{
+    font-size: 0.98rem;
+    font-weight: 300;
     color: var(--ink-soft);
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 4px 9px;
+    max-width: 58ch;
   }
-  @media (max-width: 620px){
-    .log-entry{ grid-template-columns: 1fr; gap: 8px; }
+  .entry-body p + p{ margin-top: 8px; }
+  .entry-stack{
+    margin-top: 14px;
+    font-size: 0.86rem;
+    font-style: italic;
+    font-family: var(--font-display);
+    color: var(--ink-faint);
   }
 
   /* ---------- stack ---------- */
-  .stack-groups{
+  .stack-line{
     display: flex;
-    flex-direction: column;
-    gap: 22px;
-  }
-  .stack-group{
-    display: grid;
-    grid-template-columns: 110px 1fr;
     gap: 18px;
-    align-items: start;
-  }
-  .stack-label{
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--ink-faint);
-    padding-top: 6px;
-  }
-  .stack-chips{
-    display: flex;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
     flex-wrap: wrap;
-    gap: 8px;
   }
-  @media (max-width: 560px){
-    .stack-group{ grid-template-columns: 1fr; gap: 6px; }
+  .stack-line:first-of-type{ border-top: none; padding-top: 0; }
+  .stack-line .label{ width: 96px; flex-shrink: 0; padding-top: 2px; }
+  .stack-values{
+    font-size: 0.96rem;
+    font-weight: 300;
+    color: var(--ink-soft);
   }
 
   /* ---------- education ---------- */
-  .edu-list{ display: flex; flex-direction: column; }
   .edu-item{
     display: flex;
     justify-content: space-between;
@@ -333,323 +250,266 @@
   }
   .edu-item:first-child{ border-top: none; padding-top: 0; }
   .edu-name{
-    font-weight: 500;
     font-size: 0.98rem;
+    font-weight: 400;
   }
   .edu-detail{
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: var(--ink-faint);
+    font-style: italic;
+    font-family: var(--font-display);
     margin-top: 3px;
   }
   .edu-when{
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     color: var(--ink-faint);
     white-space: nowrap;
     text-align: right;
   }
   .edu-link{
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--accent);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: border-color 160ms var(--ease-out);
+    border-bottom: 1px solid var(--line);
+    transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out);
   }
   @media (hover: hover) and (pointer: fine){
-    .edu-link:hover{ border-color: var(--accent); }
+    .edu-link:hover{ color: var(--accent); border-color: var(--accent); }
   }
-  @media (max-width: 560px){
+  @media (max-width: 540px){
     .edu-item{ flex-direction: column; align-items: flex-start; gap: 4px; }
     .edu-when{ text-align: left; }
   }
 
   /* ---------- strengths ---------- */
   .strengths{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  .strengths li{
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 300;
     color: var(--ink-soft);
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    padding: 9px 14px;
+    max-width: 56ch;
+  }
+  .strengths span:not(:last-child)::after{
+    content: "·";
+    margin: 0 10px;
+    color: var(--line);
   }
 
   /* ---------- footer ---------- */
   footer{
-    padding: 48px 0 56px;
-  }
-  .foot-inner{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 20px;
-    flex-wrap: wrap;
+    padding: 64px 0 72px;
   }
   .foot-cta h2{
-    font-size: 1.7rem;
-    font-weight: 500;
-    max-width: 16ch;
+    font-size: 1.9rem;
+    max-width: 18ch;
   }
   .foot-cta p{
-    margin-top: 10px;
+    margin-top: 14px;
+    max-width: 40ch;
+    font-weight: 300;
     color: var(--ink-soft);
-    font-size: 0.96rem;
+    font-size: 0.98rem;
   }
-  .foot-btn{
+  .foot-link{
     display: inline-flex;
-    align-items: center;
+    align-items: baseline;
     gap: 8px;
-    background: var(--accent);
-    color: var(--bg);
+    margin-top: 26px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--accent);
     text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 500;
-    padding: 13px 22px;
-    border-radius: 3px;
-    transition: transform 160ms var(--ease-out), background 160ms var(--ease-out);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+    transition: opacity 200ms var(--ease-out);
   }
-  .foot-btn:active{ transform: scale(0.97); }
   @media (hover: hover) and (pointer: fine){
-    .foot-btn:hover{ background: var(--accent-strong); }
+    .foot-link:hover{ opacity: 0.72; }
   }
   .foot-bottom{
-    margin-top: 40px;
-    padding-top: 20px;
+    margin-top: 56px;
+    padding-top: 22px;
     border-top: 1px solid var(--line);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
-    font-family: var(--font-mono);
     font-size: 0.76rem;
+    letter-spacing: 0.03em;
     color: var(--ink-faint);
   }
-
-  /* reveal targets: default visible, JS hides only after GSAP confirms it can animate */
-  [data-reveal]{ opacity: 1; }
 </style>
 </head>
 <body>
 
 <nav class="nav">
   <div class="nav-inner">
-    <a class="nav-mark" href="#top">joseph<span>.</span>dev</a>
+    <a class="nav-mark" href="#top">Joseph Gutierrez</a>
     <ul class="nav-links">
       <li><a href="#profile">Profile</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a href="#education">Education</a></li>
     </ul>
-    <a class="nav-cta" href="mailto:joseph98.gutierrez@gmail.com">say hello</a>
   </div>
 </nav>
 
-<main class="wrap" id="top">
+<main class="col" id="top">
 
   <section class="hero" style="border-top:none;">
-    <span class="eyebrow"><span class="cursor"></span>Lima, Perú — open to frontend roles</span>
-    <h1>Joseph Gutierrez, <em>building interfaces</em> that hold together end to end.</h1>
+    <span class="label">Lima, Perú — Frontend Developer</span>
+    <h1>Building interfaces that hold together, <em>end to end</em>.</h1>
     <p class="hero-tagline">Software Engineering student at USIL and Cibertec graduate, working across React on the frontend and Java/Spring Boot or NestJS on the backend. Most at home turning a working API into an interface people don't have to think about.</p>
-    <div class="hero-contacts">
-      <a class="chip" href="mailto:joseph98.gutierrez@gmail.com">joseph98.gutierrez@gmail.com</a>
-      <a class="chip" href="tel:+51924162690">+51 924 162 690</a>
-      <a class="chip" href="https://www.linkedin.com/in/joseph-michael-gutierrez-mamani-478120253/" target="_blank" rel="noopener">linkedin.com/in/joseph-gutierrez</a>
-    </div>
+    <p class="hero-contacts">
+      <a href="mailto:joseph98.gutierrez@gmail.com">joseph98.gutierrez@gmail.com</a><span class="sep">·</span><a href="tel:+51924162690">+51 924 162 690</a><span class="sep">·</span><a href="https://www.linkedin.com/in/joseph-michael-gutierrez-mamani-478120253/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
   </section>
 
-  <section id="profile">
+  <section id="profile" data-reveal>
     <div class="section-head">
-      <h2>Profile</h2>
-      <span class="section-tag">Readme</span>
+      <span class="label">Profile</span>
     </div>
     <p class="profile-text">Graduate of Cibertec Institute in Computer Science and Information Technology, now validating those studies as an undergraduate at San Ignacio de Loyola University (USIL). Genuinely curious about new technologies and how fast the field moves — currently looking for a frontend role to grow into, with a backend foundation solid enough to work well with the rest of the team.</p>
   </section>
 
-  <section id="experience">
+  <section id="experience" data-reveal>
     <div class="section-head">
-      <h2>Experience</h2>
-      <span class="section-tag">Changelog</span>
+      <span class="label">Experience</span>
     </div>
 
-    <div class="log-entry" data-reveal>
-      <div class="log-meta">
-        <span class="log-version">v.current</span>
+    <div class="entry">
+      <div class="entry-top">
+        <div>
+          <div class="entry-role">Junior Software Developer</div>
+          <div class="entry-org">Devdatep Consulting</div>
+        </div>
+        <span class="entry-when">Current</span>
       </div>
+      <div class="entry-body">
+        <p>Assisted in maintaining and developing components for an attendance management system.</p>
+        <p>Developed and maintained backend features in Java (Spring Boot), including REST APIs and business logic.</p>
+      </div>
+      <div class="entry-stack">React · Zustand · Tailwind CSS · TanStack Query · Java · Spring Boot · MySQL</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-top">
+        <div>
+          <div class="entry-role">Full Stack Freelance Developer</div>
+          <div class="entry-org">Independent</div>
+        </div>
+        <span class="entry-when">Jan 2025 – Jan 2026</span>
+      </div>
+      <div class="entry-body">
+        <p>Developed web applications using React on the frontend and NestJS on the backend, end to end.</p>
+        <p>Implemented REST APIs, JWT authentication and PostgreSQL databases, with dynamic, responsive interfaces wired directly to those services.</p>
+      </div>
+      <div class="entry-stack">React · NestJS · PostgreSQL · JWT · REST APIs</div>
+    </div>
+  </section>
+
+  <section id="stack" data-reveal>
+    <div class="section-head">
+      <span class="label">Stack</span>
+    </div>
+    <div class="stack-line">
+      <span class="label">Frontend</span>
+      <span class="stack-values">React, JavaScript, Zustand, TanStack Query, Tailwind CSS</span>
+    </div>
+    <div class="stack-line">
+      <span class="label">Backend</span>
+      <span class="stack-values">Java, Spring Boot, NestJS, PostgreSQL, MySQL, JWT</span>
+    </div>
+    <div class="stack-line">
+      <span class="label">Mobile</span>
+      <span class="stack-values">Kotlin, Jetpack Compose</span>
+    </div>
+  </section>
+
+  <section id="education" data-reveal>
+    <div class="section-head">
+      <span class="label">Education &amp; Certifications</span>
+    </div>
+    <div class="edu-item">
       <div>
-        <div class="log-role">Junior Software Developer</div>
-        <div class="log-org">Devdatep Consulting</div>
-        <div class="log-body">
-          <p>Assisted in maintaining and developing components for an attendance management system.</p>
-          <p>Developed and maintained backend features in Java (Spring Boot), including REST APIs and business logic.</p>
-        </div>
-        <div class="log-stack">
-          <span class="tag">React</span>
-          <span class="tag">Zustand</span>
-          <span class="tag">Tailwind CSS</span>
-          <span class="tag">TanStack Query</span>
-          <span class="tag">Java</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">MySQL</span>
-        </div>
+        <div class="edu-name">B.S. in Software Engineering</div>
+        <div class="edu-detail">San Ignacio de Loyola University (USIL) — 6th semester, in progress</div>
       </div>
+      <div class="edu-when">Aug 2024 — present</div>
     </div>
-
-    <div class="log-entry" data-reveal>
-      <div class="log-meta">
-        <span class="log-version">2025.01 — 2026.01</span>
-      </div>
+    <div class="edu-item">
       <div>
-        <div class="log-role">Full Stack Freelance Developer</div>
-        <div class="log-org">Independent</div>
-        <div class="log-body">
-          <p>Developed web applications using React on the frontend and NestJS on the backend, end to end.</p>
-          <p>Implemented REST APIs, JWT authentication and PostgreSQL databases, with dynamic, responsive interfaces wired directly to those services.</p>
-        </div>
-        <div class="log-stack">
-          <span class="tag">React</span>
-          <span class="tag">NestJS</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">JWT</span>
-          <span class="tag">REST APIs</span>
-        </div>
+        <div class="edu-name">Computer Science &amp; Information Technology</div>
+        <div class="edu-detail">Cibertec Institute — completed</div>
       </div>
+      <div class="edu-when">Aug 2020</div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-name">Java 17 Web Developer — certificate</div>
+        <div class="edu-detail">Cibertec</div>
+      </div>
+      <a class="edu-link" href="https://drive.google.com/file/d/1Y6v9iTM5Xi2pHCVZHQpN1CHxQ_Bw8ejl/view?usp=drive_link" target="_blank" rel="noopener">view credential</a>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-name">Web Development — certificate</div>
+        <div class="edu-detail">Coderhouse</div>
+      </div>
+      <a class="edu-link" href="https://drive.google.com/file/d/1tCKNly7mOw1L8Szuk8S313k4E4NXRHJj/view?usp=sharing" target="_blank" rel="noopener">view credential</a>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-name">JavaScript — certificate</div>
+        <div class="edu-detail">Coderhouse</div>
+      </div>
+      <a class="edu-link" href="https://drive.google.com/file/d/1Up4mvuFJiH_w6yXWhEMgRG_YWqxPH439/view?usp=sharing" target="_blank" rel="noopener">view credential</a>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-name">Hands-on Training Program</div>
+        <div class="edu-detail">Kreativstorm — specialized web development course</div>
+      </div>
+      <a class="edu-link" href="https://credsverse.com/credentials/9fa60ea1-d767-4d6b-adb5-86534c45b49f" target="_blank" rel="noopener">view credential</a>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-name">Android Studio — certificate</div>
+        <div class="edu-detail">USIL — Kotlin &amp; Jetpack Compose</div>
+      </div>
+      <a class="edu-link" href="https://drive.google.com/file/d/1CZ5Uv647grxwP1VMUwX-z3cza8RdcRRn/view?usp=sharing" target="_blank" rel="noopener">view credential</a>
+    </div>
+    <div class="edu-item">
+      <div>
+        <div class="edu-name">English — Intermediate 5</div>
+        <div class="edu-detail">Británico</div>
+      </div>
+      <div class="edu-when">Jan 2022 — in progress</div>
     </div>
   </section>
 
-  <section id="stack">
+  <section data-reveal>
     <div class="section-head">
-      <h2>Stack</h2>
-      <span class="section-tag">Tools</span>
+      <span class="label">Strengths</span>
     </div>
-    <div class="stack-groups">
-      <div class="stack-group">
-        <span class="stack-label">Frontend</span>
-        <div class="stack-chips">
-          <span class="tag">React</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Zustand</span>
-          <span class="tag">TanStack Query</span>
-          <span class="tag">Tailwind CSS</span>
-        </div>
-      </div>
-      <div class="stack-group">
-        <span class="stack-label">Backend</span>
-        <div class="stack-chips">
-          <span class="tag">Java</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">NestJS</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">JWT</span>
-        </div>
-      </div>
-      <div class="stack-group">
-        <span class="stack-label">Mobile</span>
-        <div class="stack-chips">
-          <span class="tag">Kotlin</span>
-          <span class="tag">Jetpack Compose</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="section-head">
-      <h2>Education &amp; Certifications</h2>
-      <span class="section-tag">Record</span>
-    </div>
-    <div class="edu-list">
-      <div class="edu-item" data-reveal>
-        <div>
-          <div class="edu-name">B.S. in Software Engineering</div>
-          <div class="edu-detail">San Ignacio de Loyola University (USIL) — 6th semester, in progress</div>
-        </div>
-        <div class="edu-when">Aug 2024 — present</div>
-      </div>
-      <div class="edu-item" data-reveal>
-        <div>
-          <div class="edu-name">Computer Science &amp; Information Technology</div>
-          <div class="edu-detail">Cibertec Institute — completed</div>
-        </div>
-        <div class="edu-when">Aug 2020</div>
-      </div>
-      <div class="edu-item" data-reveal>
-        <div>
-          <div class="edu-name">Java 17 Web Developer — certificate</div>
-          <div class="edu-detail">Cibertec</div>
-        </div>
-        <a class="edu-link" href="https://drive.google.com/file/d/1Y6v9iTM5Xi2pHCVZHQpN1CHxQ_Bw8ejl/view?usp=drive_link" target="_blank" rel="noopener">view credential →</a>
-      </div>
-      <div class="edu-item" data-reveal>
-        <div>
-          <div class="edu-name">Web Development — certificate</div>
-          <div class="edu-detail">Coderhouse</div>
-        </div>
-        <a class="edu-link" href="https://drive.google.com/file/d/1tCKNly7mOw1L8Szuk8S313k4E4NXRHJj/view?usp=sharing" target="_blank" rel="noopener">view credential →</a>
-      </div>
-      <div class="edu-item" data-reveal>
-        <div>
-          <div class="edu-name">JavaScript — certificate</div>
-          <div class="edu-detail">Coderhouse</div>
-        </div>
-        <a class="edu-link" href="https://drive.google.com/file/d/1Up4mvuFJiH_w6yXWhEMgRG_YWqxPH439/view?usp=sharing" target="_blank" rel="noopener">view credential →</a>
-      </div>
-      <div class="edu-item" data-reveal>
-        <div>
-          <div class="edu-name">Hands-on Training Program</div>
-          <div class="edu-detail">Kreativstorm — specialized web development course</div>
-        </div>
-        <a class="edu-link" href="https://credsverse.com/credentials/9fa60ea1-d767-4d6b-adb5-86534c45b49f" target="_blank" rel="noopener">view credential →</a>
-      </div>
-      <div class="edu-item" data-reveal>
-        <div>
-          <div class="edu-name">Android Studio — certificate</div>
-          <div class="edu-detail">USIL — Kotlin &amp; Jetpack Compose</div>
-        </div>
-        <a class="edu-link" href="https://drive.google.com/file/d/1CZ5Uv647grxwP1VMUwX-z3cza8RdcRRn/view?usp=sharing" target="_blank" rel="noopener">view credential →</a>
-      </div>
-      <div class="edu-item" data-reveal>
-        <div>
-          <div class="edu-name">English — Intermediate 5</div>
-          <div class="edu-detail">Británico</div>
-        </div>
-        <div class="edu-when">Jan 2022 — in progress</div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2>Strengths</h2>
-      <span class="section-tag">Traits</span>
-    </div>
-    <ul class="strengths">
-      <li>Critical thinking</li>
-      <li>Analytical skills</li>
-      <li>Creativity</li>
-      <li>Adaptability</li>
-      <li>Friendly and service-oriented</li>
-      <li>Active listening</li>
-    </ul>
+    <p class="strengths">
+      <span>Critical thinking</span><span>Analytical skills</span><span>Creativity</span><span>Adaptability</span><span>Friendly and service-oriented</span><span>Active listening</span>
+    </p>
   </section>
 
 </main>
 
-<footer class="wrap">
-  <div class="foot-inner">
-    <div class="foot-cta">
-      <h2>Let's talk about a frontend role.</h2>
-      <p>Fastest reply is by email — happy to send the full CV or walk through any project above.</p>
-    </div>
-    <a class="foot-btn" href="mailto:joseph98.gutierrez@gmail.com">Email me →</a>
+<footer class="col">
+  <div class="foot-cta">
+    <h2>Let's talk about a frontend role.</h2>
+    <p>Fastest reply is by email — happy to send the full CV or walk through any project above.</p>
+    <a class="foot-link" href="mailto:joseph98.gutierrez@gmail.com">Email me →</a>
   </div>
   <div class="foot-bottom">
     <span>Joseph Gutierrez — Lima, Perú</span>
-    <span>updated 2026</span>
+    <span>Updated 2026</span>
   </div>
 </footer>
 
@@ -664,29 +524,25 @@
         fullMotion: "(prefers-reduced-motion: no-preference)"
       },
       function(context){
-        var reduceMotion = context.conditions.reduceMotion;
-        var revealEls = document.querySelectorAll('[data-reveal]');
+        if(context.conditions.reduceMotion){ return; }
 
-        if(reduceMotion){
-          return;
-        }
+        gsap.timeline({ defaults: { ease: 'power2.out', duration: 1 } })
+          .from('.hero .label', { autoAlpha: 0, y: 8 })
+          .from('.hero h1', { autoAlpha: 0, y: 14 }, '-=0.75')
+          .from('.hero-tagline', { autoAlpha: 0, y: 14 }, '-=0.75')
+          .from('.hero-contacts', { autoAlpha: 0, y: 10 }, '-=0.7');
 
-        gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.7 } })
-          .from('.eyebrow', { autoAlpha: 0, y: 10 })
-          .from('.hero h1', { autoAlpha: 0, y: 18 }, '-=0.5')
-          .from('.hero-tagline', { autoAlpha: 0, y: 16 }, '-=0.5')
-          .from('.hero-contacts .chip', { autoAlpha: 0, y: 10, stagger: 0.07 }, '-=0.4');
-
-        gsap.set(revealEls, { autoAlpha: 0, y: 14 });
+        var sections = document.querySelectorAll('[data-reveal]');
+        gsap.set(sections, { autoAlpha: 0, y: 16 });
         var io = new IntersectionObserver(function(entries){
           entries.forEach(function(entry){
             if(entry.isIntersecting){
-              gsap.to(entry.target, { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+              gsap.to(entry.target, { autoAlpha: 1, y: 0, duration: 0.9, ease: 'power2.out' });
               io.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-        revealEls.forEach(function(el){ io.observe(el); });
+        }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+        sections.forEach(function(el){ io.observe(el); });
       }
     );
   })();
