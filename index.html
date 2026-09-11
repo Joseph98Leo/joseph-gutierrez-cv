@@ -144,6 +144,27 @@
   @media (hover: hover) and (pointer: fine){
     .nav-cta:hover{ border-color: var(--accent); color: var(--accent); }
   }
+  .nav-actions{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .lang-toggle{
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.02em;
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+    padding: 7px 10px;
+    cursor: pointer;
+    transition: transform 160ms var(--ease-out), border-color 160ms var(--ease-out), color 160ms var(--ease-out);
+  }
+  .lang-toggle:active{ transform: scale(0.96); }
+  @media (hover: hover) and (pointer: fine){
+    .lang-toggle:hover{ border-color: var(--accent); color: var(--accent); }
+  }
 
   /* ---------- hero ---------- */
   .hero{
@@ -439,21 +460,24 @@
   <div class="nav-inner">
     <a class="nav-mark" href="#top">joseph<span>.</span>dev</a>
     <ul class="nav-links">
-      <li><a href="#profile">Profile</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#stack">Stack</a></li>
-      <li><a href="#education">Education</a></li>
+      <li><a href="#profile" data-i18n="nav.profile">Profile</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#stack" data-i18n="nav.stack">Stack</a></li>
+      <li><a href="#education" data-i18n="nav.education">Education</a></li>
     </ul>
-    <a class="nav-cta" href="mailto:joseph98.gutierrez@gmail.com">say hello</a>
+    <div class="nav-actions">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch to Spanish">ES</button>
+      <a class="nav-cta" href="mailto:joseph98.gutierrez@gmail.com" data-i18n="nav.cta">say hello</a>
+    </div>
   </div>
 </nav>
 
 <main class="wrap" id="top">
 
   <section class="hero" style="border-top:none;">
-    <span class="eyebrow"><span class="cursor"></span>Lima, Perú — open to frontend roles</span>
-    <h1>Joseph Gutierrez, <em>building interfaces</em> that hold together end to end.</h1>
-    <p class="hero-tagline">Software Engineering student at USIL and Cibertec graduate, working across React on the frontend and Java/Spring Boot or NestJS on the backend. Most at home turning a working API into an interface people don't have to think about.</p>
+    <span class="eyebrow"><span class="cursor"></span><span data-i18n="hero.eyebrow">Lima, Perú — open to frontend roles</span></span>
+    <h1 data-i18n="hero.title">Joseph Gutierrez, <em>building interfaces</em> that hold together end to end.</h1>
+    <p class="hero-tagline" data-i18n="hero.tagline">Software Engineering student at USIL and Cibertec graduate, working across React on the frontend and Java/Spring Boot or NestJS on the backend. Most at home turning a working API into an interface people don't have to think about.</p>
     <div class="hero-contacts">
       <a class="chip" href="mailto:joseph98.gutierrez@gmail.com">joseph98.gutierrez@gmail.com</a>
       <a class="chip" href="tel:+51924162690">+51 924 162 690</a>
@@ -463,28 +487,28 @@
 
   <section id="profile">
     <div class="section-head">
-      <h2>Profile</h2>
-      <span class="section-tag">Readme</span>
+      <h2 data-i18n="profile.heading">Profile</h2>
+      <span class="section-tag" data-i18n="profile.tag">Readme</span>
     </div>
-    <p class="profile-text">Graduate of Cibertec Institute in Computer Science and Information Technology, now validating those studies as an undergraduate at San Ignacio de Loyola University (USIL). Genuinely curious about new technologies and how fast the field moves — currently looking for a frontend role to grow into, with a backend foundation solid enough to work well with the rest of the team.</p>
+    <p class="profile-text" data-i18n="profile.body">Graduate of Cibertec Institute in Computer Science and Information Technology, now validating those studies as an undergraduate at San Ignacio de Loyola University (USIL). Genuinely curious about new technologies and how fast the field moves — currently looking for a frontend role to grow into, with a backend foundation solid enough to work well with the rest of the team.</p>
   </section>
 
   <section id="experience">
     <div class="section-head">
-      <h2>Experience</h2>
-      <span class="section-tag">Changelog</span>
+      <h2 data-i18n="experience.heading">Experience</h2>
+      <span class="section-tag" data-i18n="experience.tag">Changelog</span>
     </div>
 
     <div class="log-entry" data-reveal>
       <div class="log-meta">
-        <span class="log-version">v.current</span>
+        <span class="log-version" data-i18n="experience.e1.version">v.current</span>
       </div>
       <div>
-        <div class="log-role">Junior Software Developer</div>
+        <div class="log-role" data-i18n="experience.e1.role">Junior Software Developer</div>
         <div class="log-org">Devdatep Consulting</div>
         <div class="log-body">
-          <p>Assisted in maintaining and developing components for an attendance management system.</p>
-          <p>Developed and maintained backend features in Java (Spring Boot), including REST APIs and business logic.</p>
+          <p data-i18n="experience.e1.p1">Assisted in maintaining and developing components for an attendance management system.</p>
+          <p data-i18n="experience.e1.p2">Developed and maintained backend features in Java (Spring Boot), including REST APIs and business logic.</p>
         </div>
         <div class="log-stack">
           <span class="tag">React</span>
@@ -503,11 +527,11 @@
         <span class="log-version">2025.01 — 2026.01</span>
       </div>
       <div>
-        <div class="log-role">Full Stack Freelance Developer</div>
-        <div class="log-org">Independent</div>
+        <div class="log-role" data-i18n="experience.e2.role">Full Stack Freelance Developer</div>
+        <div class="log-org" data-i18n="experience.e2.org">Independent</div>
         <div class="log-body">
-          <p>Developed web applications using React on the frontend and NestJS on the backend, end to end.</p>
-          <p>Implemented REST APIs, JWT authentication and PostgreSQL databases, with dynamic, responsive interfaces wired directly to those services.</p>
+          <p data-i18n="experience.e2.p1">Developed web applications using React on the frontend and NestJS on the backend, end to end.</p>
+          <p data-i18n="experience.e2.p2">Implemented REST APIs, JWT authentication and PostgreSQL databases, with dynamic, responsive interfaces wired directly to those services.</p>
         </div>
         <div class="log-stack">
           <span class="tag">React</span>
@@ -523,7 +547,7 @@
   <section id="stack">
     <div class="section-head">
       <h2>Stack</h2>
-      <span class="section-tag">Tools</span>
+      <span class="section-tag" data-i18n="stack.tag">Tools</span>
     </div>
     <div class="stack-groups">
       <div class="stack-group">
@@ -548,7 +572,7 @@
         </div>
       </div>
       <div class="stack-group">
-        <span class="stack-label">Mobile</span>
+        <span class="stack-label" data-i18n="stack.mobile">Mobile</span>
         <div class="stack-chips">
           <span class="tag">Kotlin</span>
           <span class="tag">Jetpack Compose</span>
@@ -559,81 +583,81 @@
 
   <section id="education">
     <div class="section-head">
-      <h2>Education &amp; Certifications</h2>
-      <span class="section-tag">Record</span>
+      <h2 data-i18n="education.heading">Education &amp; Certifications</h2>
+      <span class="section-tag" data-i18n="education.tag">Record</span>
     </div>
     <div class="edu-list">
       <div class="edu-item" data-reveal>
         <div>
-          <div class="edu-name">B.S. in Software Engineering</div>
-          <div class="edu-detail">San Ignacio de Loyola University (USIL) — 6th semester, in progress</div>
+          <div class="edu-name" data-i18n="education.e1.name">B.S. in Software Engineering</div>
+          <div class="edu-detail" data-i18n="education.e1.detail">San Ignacio de Loyola University (USIL) — 6th semester, in progress</div>
         </div>
-        <div class="edu-when">Aug 2024 — present</div>
+        <div class="edu-when" data-i18n="education.e1.when">Aug 2024 — present</div>
       </div>
       <div class="edu-item" data-reveal>
         <div>
-          <div class="edu-name">Computer Science &amp; Information Technology</div>
-          <div class="edu-detail">Cibertec Institute — completed</div>
+          <div class="edu-name" data-i18n="education.e2.name">Computer Science &amp; Information Technology</div>
+          <div class="edu-detail" data-i18n="education.e2.detail">Cibertec Institute — completed</div>
         </div>
         <div class="edu-when">Aug 2020</div>
       </div>
       <div class="edu-item" data-reveal>
         <div>
-          <div class="edu-name">Java 17 Web Developer — certificate</div>
+          <div class="edu-name" data-i18n="education.e3.name">Java 17 Web Developer — certificate</div>
           <div class="edu-detail">Cibertec</div>
         </div>
-        <a class="edu-link" href="https://drive.google.com/file/d/1Y6v9iTM5Xi2pHCVZHQpN1CHxQ_Bw8ejl/view?usp=drive_link" target="_blank" rel="noopener">view credential →</a>
+        <a class="edu-link" href="https://drive.google.com/file/d/1Y6v9iTM5Xi2pHCVZHQpN1CHxQ_Bw8ejl/view?usp=drive_link" target="_blank" rel="noopener" data-i18n="education.link">view credential →</a>
       </div>
       <div class="edu-item" data-reveal>
         <div>
-          <div class="edu-name">Web Development — certificate</div>
+          <div class="edu-name" data-i18n="education.e4.name">Web Development — certificate</div>
           <div class="edu-detail">Coderhouse</div>
         </div>
-        <a class="edu-link" href="https://drive.google.com/file/d/1tCKNly7mOw1L8Szuk8S313k4E4NXRHJj/view?usp=sharing" target="_blank" rel="noopener">view credential →</a>
+        <a class="edu-link" href="https://drive.google.com/file/d/1tCKNly7mOw1L8Szuk8S313k4E4NXRHJj/view?usp=sharing" target="_blank" rel="noopener" data-i18n="education.link">view credential →</a>
       </div>
       <div class="edu-item" data-reveal>
         <div>
-          <div class="edu-name">JavaScript — certificate</div>
+          <div class="edu-name" data-i18n="education.e5.name">JavaScript — certificate</div>
           <div class="edu-detail">Coderhouse</div>
         </div>
-        <a class="edu-link" href="https://drive.google.com/file/d/1Up4mvuFJiH_w6yXWhEMgRG_YWqxPH439/view?usp=sharing" target="_blank" rel="noopener">view credential →</a>
+        <a class="edu-link" href="https://drive.google.com/file/d/1Up4mvuFJiH_w6yXWhEMgRG_YWqxPH439/view?usp=sharing" target="_blank" rel="noopener" data-i18n="education.link">view credential →</a>
       </div>
       <div class="edu-item" data-reveal>
         <div>
-          <div class="edu-name">Hands-on Training Program</div>
-          <div class="edu-detail">Kreativstorm — specialized web development course</div>
+          <div class="edu-name" data-i18n="education.e6.name">Hands-on Training Program</div>
+          <div class="edu-detail" data-i18n="education.e6.detail">Kreativstorm — specialized web development course</div>
         </div>
-        <a class="edu-link" href="https://credsverse.com/credentials/9fa60ea1-d767-4d6b-adb5-86534c45b49f" target="_blank" rel="noopener">view credential →</a>
+        <a class="edu-link" href="https://credsverse.com/credentials/9fa60ea1-d767-4d6b-adb5-86534c45b49f" target="_blank" rel="noopener" data-i18n="education.link">view credential →</a>
       </div>
       <div class="edu-item" data-reveal>
         <div>
-          <div class="edu-name">Android Studio — certificate</div>
+          <div class="edu-name" data-i18n="education.e7.name">Android Studio — certificate</div>
           <div class="edu-detail">USIL — Kotlin &amp; Jetpack Compose</div>
         </div>
-        <a class="edu-link" href="https://drive.google.com/file/d/1CZ5Uv647grxwP1VMUwX-z3cza8RdcRRn/view?usp=sharing" target="_blank" rel="noopener">view credential →</a>
+        <a class="edu-link" href="https://drive.google.com/file/d/1CZ5Uv647grxwP1VMUwX-z3cza8RdcRRn/view?usp=sharing" target="_blank" rel="noopener" data-i18n="education.link">view credential →</a>
       </div>
       <div class="edu-item" data-reveal>
         <div>
-          <div class="edu-name">English — Intermediate 5</div>
+          <div class="edu-name" data-i18n="education.e8.name">English — Intermediate 5</div>
           <div class="edu-detail">Británico</div>
         </div>
-        <div class="edu-when">Jan 2022 — in progress</div>
+        <div class="edu-when" data-i18n="education.e8.when">Jan 2022 — in progress</div>
       </div>
     </div>
   </section>
 
   <section>
     <div class="section-head">
-      <h2>Strengths</h2>
-      <span class="section-tag">Traits</span>
+      <h2 data-i18n="strengths.heading">Strengths</h2>
+      <span class="section-tag" data-i18n="strengths.tag">Traits</span>
     </div>
     <ul class="strengths">
-      <li>Critical thinking</li>
-      <li>Analytical skills</li>
-      <li>Creativity</li>
-      <li>Adaptability</li>
-      <li>Friendly and service-oriented</li>
-      <li>Active listening</li>
+      <li data-i18n="strengths.s1">Critical thinking</li>
+      <li data-i18n="strengths.s2">Analytical skills</li>
+      <li data-i18n="strengths.s3">Creativity</li>
+      <li data-i18n="strengths.s4">Adaptability</li>
+      <li data-i18n="strengths.s5">Friendly and service-oriented</li>
+      <li data-i18n="strengths.s6">Active listening</li>
     </ul>
   </section>
 
@@ -642,14 +666,14 @@
 <footer class="wrap">
   <div class="foot-inner">
     <div class="foot-cta">
-      <h2>Let's talk about a frontend role.</h2>
-      <p>Fastest reply is by email — happy to send the full CV or walk through any project above.</p>
+      <h2 data-i18n="footer.heading">Let's talk about a frontend role.</h2>
+      <p data-i18n="footer.body">Fastest reply is by email — happy to send the full CV or walk through any project above.</p>
     </div>
-    <a class="foot-btn" href="mailto:joseph98.gutierrez@gmail.com">Email me →</a>
+    <a class="foot-btn" href="mailto:joseph98.gutierrez@gmail.com" data-i18n="footer.cta">Email me →</a>
   </div>
   <div class="foot-bottom">
     <span>Joseph Gutierrez — Lima, Perú</span>
-    <span>updated 2026</span>
+    <span data-i18n="footer.updated">updated 2026</span>
   </div>
 </footer>
 
@@ -689,6 +713,112 @@
         revealEls.forEach(function(el){ io.observe(el); });
       }
     );
+  })();
+</script>
+<script>
+  (function(){
+    var STORAGE_KEY = 'cv-lang';
+    var titles = {
+      en: 'Joseph Gutierrez — Frontend Developer',
+      es: 'Joseph Gutierrez — Desarrollador Frontend'
+    };
+    var es = {
+      'nav.profile': 'Perfil',
+      'nav.experience': 'Experiencia',
+      'nav.stack': 'Stack',
+      'nav.education': 'Educación',
+      'nav.cta': 'escríbeme',
+      'hero.eyebrow': 'Lima, Perú — abierto a roles frontend',
+      'hero.title': 'Joseph Gutierrez, <em>construyendo interfaces</em> que se sostienen de punta a punta.',
+      'hero.tagline': 'Estudiante de Ingeniería de Software en la USIL y egresado de Cibertec, trabajando entre React en el frontend y Java/Spring Boot o NestJS en el backend. Donde más cómodo estoy es convirtiendo una API que funciona en una interfaz en la que nadie tiene que pensar.',
+      'profile.heading': 'Perfil',
+      'profile.tag': 'Readme',
+      'profile.body': 'Egresado del Instituto Cibertec en Computación e Informática, actualmente validando esos estudios como estudiante de pregrado en la Universidad San Ignacio de Loyola (USIL). Genuinamente curioso por las tecnologías nuevas y la velocidad con la que avanza el rubro — buscando un rol frontend en el que crecer, con una base de backend lo bastante sólida para trabajar bien con el resto del equipo.',
+      'experience.heading': 'Experiencia',
+      'experience.tag': 'Changelog',
+      'experience.e1.version': 'v.actual',
+      'experience.e1.role': 'Desarrollador de Software Junior',
+      'experience.e1.p1': 'Apoyé en el mantenimiento y desarrollo de componentes para un sistema de control de asistencia.',
+      'experience.e1.p2': 'Desarrollé y mantuve funcionalidades de backend en Java (Spring Boot), incluyendo APIs REST y lógica de negocio.',
+      'experience.e2.role': 'Desarrollador Full Stack Freelance',
+      'experience.e2.org': 'Independiente',
+      'experience.e2.p1': 'Desarrollé aplicaciones web usando React en el frontend y NestJS en el backend, de punta a punta.',
+      'experience.e2.p2': 'Implementé APIs REST, autenticación JWT y bases de datos PostgreSQL, con interfaces dinámicas y responsivas conectadas directamente a esos servicios.',
+      'stack.tag': 'Herramientas',
+      'stack.mobile': 'Móvil',
+      'education.heading': 'Educación y certificaciones',
+      'education.tag': 'Registro',
+      'education.link': 'ver certificado →',
+      'education.e1.name': 'Ingeniería de Software (Bachillerato)',
+      'education.e1.detail': 'Universidad San Ignacio de Loyola (USIL) — 6.º semestre, en curso',
+      'education.e1.when': 'Ago 2024 — presente',
+      'education.e2.name': 'Computación e Informática',
+      'education.e2.detail': 'Instituto Cibertec — completado',
+      'education.e3.name': 'Desarrollador Web Java 17 — certificado',
+      'education.e4.name': 'Desarrollo Web — certificado',
+      'education.e5.name': 'JavaScript — certificado',
+      'education.e6.name': 'Programa de entrenamiento práctico',
+      'education.e6.detail': 'Kreativstorm — curso especializado de desarrollo web',
+      'education.e7.name': 'Android Studio — certificado',
+      'education.e8.name': 'Inglés — Intermedio 5',
+      'education.e8.when': 'Ene 2022 — en curso',
+      'strengths.heading': 'Fortalezas',
+      'strengths.tag': 'Rasgos',
+      'strengths.s1': 'Pensamiento crítico',
+      'strengths.s2': 'Habilidades analíticas',
+      'strengths.s3': 'Creatividad',
+      'strengths.s4': 'Adaptabilidad',
+      'strengths.s5': 'Amable y orientado al servicio',
+      'strengths.s6': 'Escucha activa',
+      'footer.heading': 'Hablemos de un rol frontend.',
+      'footer.body': 'La forma más rápida de responder es por correo — con gusto te envío el CV completo o repasamos cualquier proyecto de arriba.',
+      'footer.cta': 'Escríbeme →',
+      'footer.updated': 'actualizado 2026'
+    };
+
+    var nodes = document.querySelectorAll('[data-i18n]');
+    var button = document.getElementById('langToggle');
+    var current = localStorage.getItem(STORAGE_KEY) === 'es' ? 'es' : 'en';
+
+    // capture the original English markup once, before any swap
+    nodes.forEach(function(el){ el._enHTML = el.innerHTML; });
+
+    function applyInstant(lang){
+      nodes.forEach(function(el){
+        var key = el.getAttribute('data-i18n');
+        el.innerHTML = lang === 'es' && es[key] ? es[key] : el._enHTML;
+      });
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+      button.textContent = lang === 'es' ? 'EN' : 'ES';
+      button.setAttribute('aria-label', lang === 'es' ? 'Switch to English' : 'Switch to Spanish');
+    }
+
+    function setLanguage(lang, animate){
+      if(!animate){
+        applyInstant(lang);
+        return;
+      }
+      var targets = document.body;
+      gsap.to(targets, {
+        autoAlpha: 0.4,
+        filter: 'blur(2px)',
+        duration: 0.15,
+        ease: 'power1.out',
+        onComplete: function(){
+          applyInstant(lang);
+          gsap.to(targets, { autoAlpha: 1, filter: 'blur(0px)', duration: 0.2, ease: 'power2.out' });
+        }
+      });
+    }
+
+    if(current === 'es'){ applyInstant('es'); }
+
+    button.addEventListener('click', function(){
+      current = current === 'en' ? 'es' : 'en';
+      localStorage.setItem(STORAGE_KEY, current);
+      setLanguage(current, true);
+    });
   })();
 </script>
 </body>
